@@ -47,3 +47,31 @@ void io_display_fleet_status(Fleet *fleet){
     }
 }
 
+// Funções de Entrada 
+void io_read_coordenada(int *linha , int *coluna){
+    char entrada[10] ;
+    printf("Digite Coordenada ex: A5 ") ;
+    scanf("%s", entrada); 
+    char letra = toupper(entrada[0]); 
+    *coluna = letra - 'A'; 
+    int numero = atoi(&entrada[1]);
+    *linha = numero - 1; 
+    
+} 
+
+int io_read_orietation(){
+    char entrada[10];
+    while(1){
+        printf("Orientacao (H = Horizontal, V = Vertical): ");
+        scanf("%s", entrada);
+        char c = toupper(entrada[0]);
+        
+        if(c == 'H'){
+            return 0 ; 
+        }
+        else{
+            return 1 ; 
+        }
+        printf("Opcao invalida! Tente H ou V.\n");
+    }
+}
