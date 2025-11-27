@@ -3,7 +3,7 @@
 #include<string.h>
 #include "fleet.h" 
 
-void inicialize_fleet(Fleet *fleet){
+int inicialize_fleet(Fleet *fleet){
      fleet -> count = 6 ; 
 
      fleet -> navios = malloc( 6 * sizeof(Navio)) ; 
@@ -44,7 +44,7 @@ void inicialize_fleet(Fleet *fleet){
     fleet->navios[5].dano = 0;   
     fleet->navios[5].posicao = 0;  
 
-
+     return 0 ;
 } 
 
 void free_board(Fleet *fleet){

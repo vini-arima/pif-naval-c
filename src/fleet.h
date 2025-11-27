@@ -16,5 +16,7 @@ typedef struct{
     int count ; 
 } Fleet ;
 
+int inicialize_fleet(Fleet *fleet); 
+void free_board(Fleet *fleet) ; 
 
 #endif

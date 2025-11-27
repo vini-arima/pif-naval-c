@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<ctype.h>
+#include "board.h"
 #include "game.h"
 #include "io.h" 
 
@@ -16,7 +17,7 @@ void io_display_board(Board *board , int mostra_navios){
         printf("%2d", l + 1);
 
         for (int c = 0; c < board->colunas; c++) {
-            Cell *cell = get_Cell(board , l , c); 
+            Cell *cell = get_cell(board , l , c); 
 
             char simbolo;
             switch (cell->state) {
@@ -40,7 +41,7 @@ void io_display_fleet_status(Fleet *fleet){
     for (int i = 0; i < fleet->count; i++) {
         Navio *navios= &fleet->navios[i];
         printf("%-15s: %d/%d acertos. %s\n", 
-               navios ->name, 
+               navios ->nome, 
                navios ->dano, 
                navios ->tamanho, 
                (navios->dano == navios -> tamanho ? "**AFUNDADO**" : "Flutuando"));

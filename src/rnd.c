@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<time.h>
-#include"fleet.h"
+#include <stdlib.h> // INCLUIE srand() e rand()
 #include "rnd.h"
 
 void setup_random() {

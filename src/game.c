@@ -62,6 +62,23 @@ int process_tiro(Player *atacante , Player *defensor){
     // ?
 }
 
+
+// Função auxiliar para configurar o tabuleiro de um jogador
+void setup_player(Board *board, Fleet *fleet, int player_num) {
+    printf("\n--- CONFIGURACAO JOGADOR %d ---\n", player_num);
+    printf("Como deseja posicionar sua frota?\n");
+    printf("(A)utomatico ou (M)anual? ");
+    char resp[10];
+    scanf("%s", resp);
+
+    if (toupper(resp[0]) == 'M') {
+        place_ships_manual(board, fleet);
+    } else {
+        printf("Posicionando sua frota aleatoriamente...\n");
+        place_ships_auto(board, fleet);
+    }
+}
+
 // Verifica s eo jogo acabou
 int game_over(Player *p , Fleet *fleet){
     for (int i = 0; i < p->fleet.count; i++) {

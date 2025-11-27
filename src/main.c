@@ -7,14 +7,14 @@
 #include "game.h"
 #include "rnd.h"
 
-int main(){
 
+int main(){
     setup_random() ;
     printf("|============== BATALHA NAVAL =============== |");
 
     // Jogador 1
     Fleet frota_player1 ;
-    inicialize_fleet(&frota_player1); 
+    if(inicialize_fleet(&frota_player1 != 0)){ return 1 ;}
     Board tab_p1 ; 
     inicialize_board(&tab_p1, 10, 10);
 
@@ -76,8 +76,10 @@ int main(){
         }
         
         // 4. Liberação de Memória
-        free_board(&tab_p1); free_fleet(&frota_player1);
-        free_board(&tab_p2); free_fleet(&frota_player2);
+        free_board(&tab_p1); 
+        free_fleet(&frota_player1);
+        free_board(&tab_p2); 
+        free_fleet(&frota_player2);
         return 0;
     }
     

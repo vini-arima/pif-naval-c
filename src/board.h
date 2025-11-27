@@ -17,5 +17,9 @@ typedef struct {
     int linhas, colunas;
     Cell *cells;    
 } Board;
+void inicialize_board(Board *board , int linhas , int colunas);
+void free_board(Board *board);
+int board_get_cell(Board *board , int l , int c , Cell **result_cells) ;
+Cell *get_cell(Board *board, int row, int col);
 
 #endif
