@@ -7,8 +7,8 @@ void setup_random() {
     srand((unsigned int)time(NULL));
 }
 
-int random_number(int min, int max) {
-    return min + (rand() % (max - min + 1));
+int random_number(int max) {
+    return rand() % max ;
 }
 
 Orientation random_orientation() {

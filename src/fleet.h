@@ -4,7 +4,7 @@
 typedef enum {ORIENT_H , ORIENT_V} Orientation ; 
 
 typedef struct {
-    char name[20]; // NOME
+    char nome[20]; // NOME
     int tamanho; // TAMANHO
     int dano; // ACERTO
     int posicao; // POSICAO
