@@ -5,7 +5,7 @@
 #include "fleet.h"
 #include "rnd.h"
 #include "io.h" 
-
+// VALIDAÇÃO DO JOGO
 int is_place_navio(Board *board , int tamanho , int linha , int coluna , int orient){
     if(orient == ORIENT_H){
         if (coluna + tamanho > board->colunas) return 0; 
@@ -23,6 +23,7 @@ int is_place_navio(Board *board , int tamanho , int linha , int coluna , int ori
     return 1; 
 } 
 
+// POSICIONAMENTO AUTOMATICO
 int place__auto_navio(Board *board, Fleet *fleet){
     int tentativas = 0 ; 
     int colocado = 0 ; 
@@ -41,7 +42,7 @@ int place__auto_navio(Board *board, Fleet *fleet){
     }
     return 1;
 }
-
+// POSICIONAMENTO MANUAL
 int place_manual_navio(Board *board , Fleet *fleet){
     int colocado = 0 ;
     for(int i = 0 ; i < fleet -> count ; i++){
@@ -56,3 +57,19 @@ int place_manual_navio(Board *board , Fleet *fleet){
         int orient = read_orientation();
     }
 }
+
+int process_tiro(Player *atacante , Player *defensor){
+    // ?
+}
+
+// Verifica s eo jogo acabou
+int game_over(Player *p , Fleet *fleet){
+    for (int i = 0; i < p->fleet.count; i++) {
+        if (p->fleet.navios[i].dano < p->fleet.navios[i].tamanho) {
+            return 0; // Jogo NÃO acabou
+        }
+    }
+    // Se o loop terminar sem encontrar nenhum navio flutuando, todos foram afundados.
+    return 1; // Jogo ACABOU
+}
+
